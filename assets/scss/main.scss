@@ -72,13 +72,10 @@ body {
   }
 }
 
-body,
-input,
-select,
-textarea {
+body {
   color: _palette(fg);
   font-family: "Lato", "Noto Sans TC", sans-serif;
-  font-size: 15pt;
+  font-size: 20pt;
   font-weight: 300;
   letter-spacing: 0.025em;
   line-height: 1.75em;
@@ -93,9 +90,9 @@ a {
       "background-color 0.2s ease-in-out"
     )
   );
+  border-bottom: dotted 1px;
   color: darken(_palette(one, bg), 20);
   text-decoration: none;
-  border-bottom: dotted 1px;
 
   &:hover {
     border-bottom-color: transparent;
@@ -108,11 +105,7 @@ b {
 }
 
 p,
-ul,
-ol,
-dl,
-table,
-blockquote {
+ul {
   margin: 0 0 2em 0;
 }
 
@@ -122,16 +115,16 @@ h3,
 h4,
 h5,
 h6 {
+  margin-bottom: 1em;
   color: inherit;
   font-weight: 300;
   line-height: 1.75em;
-  margin-bottom: 1em;
   text-transform: uppercase;
 
   a {
+    border: 0;
     color: inherit;
     text-decoration: none;
-    border: 0;
   }
 }
 
@@ -161,12 +154,6 @@ hr {
   border-top: solid 1px _palette(border);
   border: 0;
   margin-bottom: 1.5em;
-}
-
-blockquote {
-  border-left: solid 0.5em _palette(border);
-  font-style: italic;
-  padding: 1em 0 1em 2em;
 }
 
 /* Container */
@@ -223,13 +210,6 @@ blockquote {
 
 /* Section/Article */
 
-section,
-article {
-  &.special {
-    text-align: center;
-  }
-}
-
 header {
   &.special {
     margin-bottom: 5em;
@@ -245,16 +225,17 @@ header {
       margin-bottom: 0;
       padding-top: 1.5em;
     }
+
+    p {
+      max-width: 36em;
+      margin: auto;
+    }
   }
 }
 
 footer {
   > :last-child {
     margin-bottom: 0;
-  }
-
-  &.major {
-    padding-top: 3em;
   }
 }
 
@@ -341,15 +322,6 @@ footer {
 }
 
 /* List */
-
-ol {
-  list-style: decimal;
-  padding-left: 1.25em;
-
-  li {
-    padding-left: 0.25em;
-  }
-}
 
 ul {
   list-style: disc;
@@ -446,7 +418,7 @@ ul.icons {
 /* Main */
 
 #main {
-  padding: 7em 0;
+  padding: 5em 0 7em 0;
   background-image: url("/assets/images/dark-tl.svg"),
     url("/assets/images/dark-tr.svg");
   background-position: top left, top right;
@@ -456,10 +428,6 @@ ul.icons {
   > :last-child {
     margin-bottom: 0;
   }
-}
-
-body.index #main {
-  padding-top: 5em;
 }
 
 /* Footer */
@@ -499,13 +467,9 @@ body.index #main {
 @include breakpoint("<=wide") {
   /* Basic */
 
-  body,
-  input,
-  select,
-  textarea {
-    font-size: 14pt;
+  body {
+    font-size: 16pt;
   }
-  /* Section/Article */
 
   header {
     &.special {
@@ -520,11 +484,8 @@ body.index #main {
 @include breakpoint("<=normal") {
   /* Basic */
 
-  body,
-  input,
-  select,
-  textarea {
-    font-size: 13pt;
+  body {
+    font-size: 14pt;
     letter-spacing: 0.025em;
     line-height: 1.65em;
   }
@@ -558,11 +519,8 @@ body.index #main {
 
   /* Basic */
 
-  body,
-  input,
-  select,
-  textarea {
-    font-size: 13pt;
+  body {
+    font-size: 14pt;
     letter-spacing: 0.025em;
     line-height: 1.5em;
   }
@@ -600,11 +558,17 @@ body.index #main {
     overflow-x: hidden;
   }
 
-  header {
-    &.major {
-      padding-bottom: 0.25em;
-    }
+  /* Section/Article */
 
+  section {
+    margin: 1em 0 1em 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  header {
     &.special {
       margin-bottom: 4em;
       padding-top: 5em;
@@ -620,16 +584,6 @@ body.index #main {
     }
   }
 
-  /* Section/Article */
-
-  section {
-    margin: 1em 0 1em 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
   /* Banner */
 
   #banner {
@@ -639,21 +593,7 @@ body.index #main {
   /* Main */
 
   #main {
-    padding: 5em 0;
-
-    .sidebar {
-      border-top: solid 1px transparentize(_palette(fg), 0.9);
-      padding-top: 3em;
-
-      section {
-        border-top: 0;
-        padding-top: 0;
-      }
-    }
-  }
-
-  body.index #main {
-    padding-top: 4.5em;
+    padding: 4.5em 0 5em 0;
   }
 
   /* Footer */
@@ -672,6 +612,7 @@ body.index #main {
 
   body {
     min-width: 320px;
+    font-size: 12pt;
   }
 
   h2 {
@@ -697,11 +638,6 @@ body.index #main {
       margin-bottom: 3em;
       padding-left: 1.5em;
       padding-right: 1.5em;
-
-      &:before,
-      &:after {
-        width: 38%;
-      }
     }
 
     p {
@@ -751,15 +687,7 @@ body.index #main {
 
   #main {
     background-size: $pattern-background-size;
-    padding: 3.5em 0 2.5em 0;
-  }
-
-  body.index #main {
     padding: 2.5em 0 0 0;
-  }
-
-  body.contact #main {
-    padding-bottom: 0;
   }
 
   /* Footer */
